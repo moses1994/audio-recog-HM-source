@@ -21,14 +21,4 @@ get_metadata <- function(addrx){
 }
 
 #----------------------------------------------------------------------------------------------
-## ASSIGN GLOBAL VARIABLES
-# get the four data directories 
-addr <- paste0(normalizePath(list.dirs("./data", recursive = T)[2:5]),"/")
-
-# capture all available files
-audios <- rbindlist( lapply( addr, FUN=get_metadata))
-
-# assign each sample into folds
-nfold = 5
-audios[, "fold":=( (as.numeric(row.names(.SD)) - 1)%%nfold + 1)]
 
