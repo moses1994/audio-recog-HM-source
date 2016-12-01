@@ -3,7 +3,7 @@
 ##------------------------------------------------------------------------------------------------
 
 # set workdir
-setwd("~/workspace/khomp/lab-recog-HM/")
+setwd("~/workGit/audio-recog-HM-source/")
 
 # set randomness
 set.seed(1)
