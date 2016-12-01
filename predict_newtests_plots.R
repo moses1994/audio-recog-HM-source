@@ -107,7 +107,8 @@ ggplot(top12, aes(x=featset, y=err.rate, na.rm=T)) +
     geom_bar(aes(fill=method), stat="identity", position="dodge", width=.5) +
     scale_y_continuous(breaks=seq(0,.55,.025), limits=c(0,.2)) + 
     labs(title="Best 12 Models - Error Rate Range by Featset") +
-    theme_minimal()
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle=30))
     
 
 
