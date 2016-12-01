@@ -3,7 +3,7 @@ source("get_metadata.R")
 source("get_mfcc_features.R")
 source("utils.R")
 
-dir = "./audit_newrecords/answering_machine_cutted/"
+dir = "./data/test/audit_newrecords/answering_machine_cutted/"
 test.files = get_metadata(dir)
 
 
@@ -88,5 +88,5 @@ names(form_set) <- c("form.1", "form.2", "form.3")
 thrs_set <- c(0,1e6,1e7,1e8,1e9)
 
 newtests_err <- get_thrs_form_method_error(tech_set, form_set, thrs_set)
-saveRDS(newtests_err, file = "newtests_err_2.rds")
+saveRDS(newtests_err, file = "newtests_err.rds")
 
