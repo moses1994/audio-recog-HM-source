@@ -2,6 +2,7 @@
 ##------------------------------ UTILITIES -------------------------------------------------------
 ##------------------------------------------------------------------------------------------------
 
+source("set_environment.R")
 
 ##----------------------------------------------------------------------------------------------
 
@@ -18,6 +19,16 @@ form.3 = paste0("label ~ ",
                 paste0(" + ", paste0(paste0("ddelta.",1:12), collapse=" + ")))
 
 
+
+## ASSIGN GLOBAL AUDIO DATA SET TO TRAINING
+
+# get the four data directories 
+addr <- paste0(normalizePath(list.dirs("./data/train/", recursive = T)[2:5]),"/")
+# capture all available files
+audios <- rbindlist( lapply( addr, FUN=get_metadata))
+# assign each sample into folds
+nfold = 5
+audios[, "fold":=( (as.numeric(row.names(.SD)) - 1)%%nfold + 1)]
 
 
 #----------------------------------------------------------------------------------------------
