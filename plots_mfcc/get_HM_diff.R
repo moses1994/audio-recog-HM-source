@@ -1,12 +1,14 @@
-source("~/workGit/audio-recog-HM-source/set_environment.R")
+source("../set_environment.R")
 source("get_mfcc_features.R")
 
 library(reshape2)
 library(ggplot2)
+library(cowplot)
+
 
 frame.step = 0.01
 
-files <- data.table("path"=list.files("./plots_mfcc/data", full.names = T))
+files <- data.table("path"=list.files("./data/test/audit_newrecords_2/cutted_join_folders/", full.names = T))
 files[, "source":=ifelse(grepl(path, pattern="machine"), "machine", "human")]
 files[, "gender":=ifelse(grepl(path, pattern="female"), "female", "male")]
 
@@ -58,18 +60,6 @@ main <- function(file){
 
 
 main(files[1])
-
-
-library(cowplot)
-p1 <- main_obj( files[source=="machine" & gender=="male", path][1])
-p2 <- main_obj( files[source=="machine" & gender=="male", path][2])
-p3 <- main_obj( files[source=="machine" & gender=="female", path][1])
-p4 <- main_obj( files[source=="machine" & gender=="female", path][2])
-p5 <- main_obj( files[source=="human" & gender=="male", path][1])
-p6 <- main_obj( files[source=="human" & gender=="male", path][2])
-p7 <- main_obj( files[source=="human" & gender=="female", path][1])
-p8 <- main_obj( files[source=="human" & gender=="female", path][2])
-plot_grid(p1,p2,p3,p4,p5,p6,p7,p8)
 
 
 ############################################################################
