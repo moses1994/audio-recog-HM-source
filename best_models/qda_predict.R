@@ -1,7 +1,7 @@
 source("../set_environment.R", echo=F)
 source("get_mfcc_features.R", echo=F)
 
-setwd("models/")
+setwd("./best_models/")
 
 qda.fit <- readRDS("bm.qda.form1.th1e9.rds")
 

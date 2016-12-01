@@ -10,12 +10,12 @@ source("utils.R")
 # train <- get_features( audios[, path], thrs=1e9)
 # bm.qda <- qda( eval(parse(text=form.1)), train)
 # saveRDS(bm.qda, "bm.qda.form1.th1e9.rds")
-bm.qda <- readRDS("./models/bm.qda.form1.th1e9.rds")
+bm.qda <- readRDS("./best_models/bm.qda.form1.th1e9.rds")
 
 # train <- get_features( audios[, path], thrs=1e7)
 # bm.rf <- randomForest( eval(parse(text=form.1)), train)
 # saveRDS(bm.rf, "bm.rf.form1.th1e7.rds")
-bm.rf <- readRDS("./models/bm.rf.form1.th1e7.rds")
+bm.rf <- readRDS("./best_models/bm.rf.form1.th1e7.rds")
 
 predict_qda <- function( test_path, model=bm.qda){
     test_feat <- get_features( test_path, thrs=1e9)
