@@ -3,7 +3,8 @@
 ##------------------------------------------------------------------------------------------------
 
 # set workdir
-setwd("~/workGit/audio-recog-HM-source/")
+#setwd("~/workGit/audio-recog-HM-source/")
+setwd("~/workspace/audio-recog-HM-source/")
 
 # set randomness
 set.seed(1)
