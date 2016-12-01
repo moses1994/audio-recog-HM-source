@@ -5,14 +5,14 @@
 
 #' Get MFCC and derivates from an audio sample.
 #' 
-#' @param filedir the path to audio sample
+#' @param filepath the path to audio sample
 #' @param thrs the power on a frame required
 #' @return data.frame with frame features from audio sample
 #' 
-get_mfcc <- function( filedir, thrs){
-    x_label = unlist(strsplit(basename(filedir), "_"))[1]
+get_mfcc <- function( filepath, thrs){
+    x_label = unlist(strsplit(basename(filepath), "_"))[1]
     
-    x_snd = readWave( filedir)
+    x_snd = readWave( filepath)
     x_mfcc = melfcc( x_snd)
     
     x_mfcc <- x_mfcc
