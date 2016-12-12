@@ -39,7 +39,7 @@ ggplot(newtests_err, aes(x=formula, y=err.rate, na.rm=T)) +
 
 # Error Rate Range by Threshold
 ggplot(newtests_err, aes(x=threshold, y=err.rate, na.rm=T)) +
-    geom_point(aes(colour=threshold), size=3) +
+    geom_point(aes(colour=method), size=3, alpha=I(1/20)) +
     scale_y_continuous(breaks=seq(0,.55,.05), limits=c(0.0,.55)) + 
     labs(title="Error Rate Range by Threshold")
 
