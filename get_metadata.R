@@ -12,7 +12,7 @@ get_metadata <- function(addrx){
     
     files$names <- list.files(addrx)
     files$labels <- matrix(unlist(strsplit(files$names, split="_")), ncol=3, byrow=T)[, 1:2]
-    files$fullpath <- paste0(addrx, files$names)
+    files$fullpath <- paste0(addrx, "/", files$names)
     
     dt <- data.table(files$labels, files$fullpath)
     names(dt) <- c("source", "gender", "path")
